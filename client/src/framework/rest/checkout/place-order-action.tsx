@@ -18,7 +18,7 @@ import {
   calculateTotal,
 } from '@store/quick-cart/cart.utils';
 
-export const PlaceOrderAction: React.FC = (props) => {
+export const PlaceOrderAction: React.FC<React.PropsWithChildren> = ({ children, ...props }) => {
   const router = useRouter();
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const { mutate: createOrder, isLoading: loading } = useCreateOrderMutation();
@@ -116,7 +116,9 @@ export const PlaceOrderAction: React.FC = (props) => {
         onClick={handlePlaceOrder}
         disabled={!isAllRequiredFieldSelected}
         {...props}
-      />
+      >
+        {children}
+      </Button>
       {errorMessage && (
         <div className="mt-3">
           <ValidationError message={errorMessage} />

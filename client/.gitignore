@@ -42,3 +42,6 @@ __generated__
 # PWA
 workbox-*.js
 sw.js
+
+# backup files
+*.bak

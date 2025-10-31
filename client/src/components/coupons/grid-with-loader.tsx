@@ -11,6 +11,7 @@ interface GridWithLoaderProps {
   isLoadingMore: boolean;
   onLoadMore: () => void;
   limit?: number;
+  children?: React.ReactNode;
 }
 const CouponGridWithLoader: React.FC<GridWithLoaderProps> = ({
   showLoaders,

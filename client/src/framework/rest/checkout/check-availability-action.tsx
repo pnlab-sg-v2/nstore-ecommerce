@@ -12,7 +12,7 @@ import Button from '@components/ui/button';
 import { useCart } from '@store/quick-cart/cart.context';
 import { useTranslation } from 'next-i18next';
 
-export const CheckAvailabilityAction: React.FC = (props) => {
+export const CheckAvailabilityAction: React.FC<React.PropsWithChildren> = ({ children, ...props }) => {
   const { t } = useTranslation('common');
   const [billing_address] = useAtom(billingAddressAtom);
   const [shipping_address] = useAtom(shippingAddressAtom);
@@ -58,7 +58,9 @@ export const CheckAvailabilityAction: React.FC = (props) => {
         onClick={handleVerifyCheckout}
         disabled={isEmpty}
         {...props}
-      />
+      >
+        {children}
+      </Button>
       {errorMessage && (
         <div className="mt-3">
           <ValidationError message={t(errorMessage)} />

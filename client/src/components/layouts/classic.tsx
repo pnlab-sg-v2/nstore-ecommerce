@@ -1,5 +1,3 @@
-import Banner from '@framework/app/banner';
-import PromotionSliders from '@framework/app/promotions';
 import Categories from '@framework/categories/categories';
 import Products from '@framework/products/products';
 import { Element } from 'react-scroll';
