@@ -10,13 +10,31 @@ module.exports = withPWA({
     runtimeCaching,
   },
   images: {
-    domains: [
-      'pickbazarlaravel.s3.ap-southeast-1.amazonaws.com',
-      'lh3.googleusercontent.com',
-      'firebasestorage.googleapis.com',
-      'localhost',
-      'server',
-      '127.0.0.1',
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'pickbazarlaravel.s3.ap-southeast-1.amazonaws.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'lh3.googleusercontent.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'firebasestorage.googleapis.com',
+      },
+      {
+        protocol: 'http',
+        hostname: 'localhost',
+      },
+      {
+        protocol: 'http',
+        hostname: 'server',
+      },
+      {
+        protocol: 'http',
+        hostname: '127.0.0.1',
+      },
     ],
   },
   typescript: {

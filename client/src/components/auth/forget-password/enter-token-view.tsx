@@ -27,7 +27,7 @@ const EnterTokenView = ({ onSubmit, loading }: Props) => {
         {...register('token')}
         variant="outline"
         className="mb-5"
-        error={t(errors.token?.message!)}
+        error={errors.token?.message ? t(errors.token.message as string) : ''}
       />
       <Button className="w-full h-11" loading={loading} disabled={loading}>
         {t('text-submit-token')}
