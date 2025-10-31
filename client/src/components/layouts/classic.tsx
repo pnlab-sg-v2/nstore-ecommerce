@@ -1,6 +1,6 @@
 import Categories from '@framework/categories/categories';
 import Products from '@framework/products/products';
-import { Element } from 'react-scroll';
+import { Element as ScrollElement } from 'react-scroll';
 import FilterBar from './filter-bar';
 
 
@@ -11,13 +11,13 @@ const Classic = () => {
       {/* <Banner layout="classic" /> */}
       {/* <PromotionSliders /> */}
       <FilterBar />
-      <Element
+      <ScrollElement
         name="grid"
         className="flex flex-1 border-t border-solid border-border-200 border-opacity-70"
       >
         <Categories layout="classic" />
         <Products />
-      </Element>
+      </ScrollElement>
     </>
   );
 };
