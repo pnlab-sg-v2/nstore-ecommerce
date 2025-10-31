@@ -23,7 +23,7 @@ const Scrollbar: React.FC<ScrollbarProps> = ({
         scrollbars: {
           autoHide: 'scroll',
         },
-        ...(options ? options : {}),
+        ...options,
       }}
       style={style}
       className={cn('os-theme-thin-dark', className)}
