@@ -4,11 +4,11 @@ Các phiên bản phần mềm:
 
 ```bash
 λ python --version
-Python 3.8.8
+Python 3.11+
 λ node --version
-v16.13.0
+v20+
 λ docker-compose -v
-docker-compose version 1.29.2, build 5becea4c
+docker-compose version 1.29.2+, build 5becea4c
 ```
 
 Mọi người có thể sử dụng `docker` để thiệt lập môi trường phát triển nhanh hơn không cần cài các phần mềm khác
@@ -129,4 +129,47 @@ Dữ liệu được lưu trong thư mục `data`. Sử dụng docker để ch�
 
 ```bash
   docker-compose up -d
+```
+
+## CI/CD Pipeline
+
+This project includes GitHub Actions workflows for continuous integration and deployment:
+
+### CI Pipeline (`ci.yml`)
+- Runs on push to `main` and `develop` branches
+- Builds and tests both client and server
+- Validates Docker images can be built
+- Runs linting and type checking
+
+### Docker Build Pipeline (`docker-build.yml`)
+- Builds and pushes Docker images to GitHub Container Registry
+- Triggered on push to `main` branch or on version tags
+- Images are tagged with branch name, commit SHA, and version tags
+- Supports caching for faster builds
+
+### Running CI Locally
+
+To test the build locally before pushing:
+
+**Client:**
+```bash
+cd client
+npm ci
+npm run lint
+npm run build
+```
+
+**Server:**
+```bash
+cd server
+pip install pipenv
+pipenv install --dev --skip-lock
+pipenv run python manage.py migrate
+pipenv run python manage.py collectstatic --no-input
+```
+
+**Docker:**
+```bash
+docker-compose build
+docker-compose up -d
 ```

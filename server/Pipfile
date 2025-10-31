@@ -4,7 +4,7 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-django = "*"
+django = "~=5.1"
 django-debug-toolbar = "*"
 mysqlclient = "*"
 djangorestframework = "*"
@@ -17,9 +17,7 @@ django-seed = "*"
 drf-writable-nested = "*"
 drf-yasg = "*"
 gunicorn = "*"
-uvicorn = "*"
-uvloop = "*"
-httptools = "*"
+uvicorn = {extras = ["standard"], version = "*"}
 whitenoise = "*"
 dj-database-url = "*"
 django-heroku = "*"
@@ -30,4 +28,4 @@ django-environ = "*"
 autopep8 = "*"
 
 [requires]
-python_version = "3.8"
+python_version = "3.11"
