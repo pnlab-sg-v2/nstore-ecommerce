@@ -12,7 +12,7 @@ import PrivateRoute from '@lib/private-route';
 import DefaultSeo from '@components/seo/default-seo';
 import SocialLogin from '@framework/auth/social-login';
 import type { NextPage } from 'next';
-import { Provider as NextAuthProvider } from 'next-auth/client';
+import { SessionProvider } from 'next-auth/react';
 import Search from '@components/ui/search/search';
 import { SearchProvider } from '@components/ui/search/search.context';
 
@@ -35,7 +35,7 @@ function CustomApp({ Component, pageProps }: AppPropsWithLayout) {
       <SearchProvider>
         <ModalProvider>
           <CartProvider>
-            <NextAuthProvider>
+            <SessionProvider session={pageProps.session}>
               <>
                 <DefaultSeo />
                 {Boolean(authProps) ? (
@@ -50,7 +50,7 @@ function CustomApp({ Component, pageProps }: AppPropsWithLayout) {
                 <ToastContainer autoClose={2000} theme="colored" />
                 <SocialLogin />
               </>
-            </NextAuthProvider>
+            </SessionProvider>
           </CartProvider>
         </ModalProvider>
       </SearchProvider>

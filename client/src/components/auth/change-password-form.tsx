@@ -20,21 +20,21 @@ const ChangePasswordForm = ({ onSubmit, loading }: any) => {
       <PasswordInput
         label={t('text-old-password')}
         {...register('oldPassword')}
-        error={t(errors.oldPassword?.message!)}
+        error={errors.oldPassword?.message ? t(errors.oldPassword.message as string) : ''}
         className="mb-5"
         variant="outline"
       />
       <PasswordInput
         label={t('text-new-password')}
         {...register('newPassword')}
-        error={t(errors.newPassword?.message!)}
+        error={errors.newPassword?.message ? t(errors.newPassword.message as string) : ''}
         className="mb-5"
         variant="outline"
       />
       <PasswordInput
         label={t('text-confirm-password')}
         {...register('passwordConfirmation')}
-        error={t(errors.passwordConfirmation?.message!)}
+        error={errors.passwordConfirmation?.message ? t(errors.passwordConfirmation.message as string) : ''}
         className="mb-5"
         variant="outline"
       />

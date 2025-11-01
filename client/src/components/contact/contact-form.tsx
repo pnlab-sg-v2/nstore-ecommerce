@@ -39,14 +39,14 @@ const ContactForm = ({ onSubmit, loading }: Props) => {
               label={t('text-name')}
               {...register('name')}
               variant="outline"
-              error={t(errors.name?.message!)}
+              error={errors.name?.message ? t(errors.name.message as string) : ''}
             />
             <Input
               label={t('text-email')}
               {...register('email')}
               type="email"
               variant="outline"
-              error={t(errors.email?.message!)}
+              error={errors.email?.message ? t(errors.email.message as string) : ''}
             />
           </div>
           <Input
@@ -54,14 +54,14 @@ const ContactForm = ({ onSubmit, loading }: Props) => {
             {...register('subject')}
             variant="outline"
             className="my-6"
-            error={t(errors.subject?.message!)}
+            error={errors.subject?.message ? t(errors.subject.message as string) : ''}
           />
           <TextArea
             label={t('text-description')}
             {...register('description')}
             variant="outline"
             className="my-6"
-            error={t(errors.description?.message!)}
+            error={errors.description?.message ? t(errors.description.message as string) : ''}
           />
 
           <Button loading={loading} disabled={loading}>

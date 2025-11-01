@@ -1,4 +1,4 @@
-import { signIn } from 'next-auth/client';
+import { signIn } from 'next-auth/react';
 import Logo from '@components/ui/logo';
 import Alert from '@components/ui/alert';
 import Input from '@components/ui/forms/input';
@@ -61,12 +61,12 @@ const LoginForm: React.FC<LoginFormProps> = ({
               type="email"
               variant="outline"
               className="mb-5"
-              error={t(errors.email?.message!)}
+              error={errors.email?.message ? t(errors.email.message as string) : ''}
             />
             <PasswordInput
               label={t('text-password')}
               {...register('password')}
-              error={t(errors.password?.message!)}
+              error={errors.password?.message ? t(errors.password.message as string) : ''}
               variant="outline"
               className="mb-5"
               forgotPageRouteOnClick={() => openModal('FORGOT_VIEW')}

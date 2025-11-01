@@ -50,14 +50,14 @@ const OtpLoginForm: React.FC<OtpLoginFormProps> = ({
                   type="email"
                   variant="outline"
                   className="mb-5"
-                  error={t(errors.email?.message!)}
+                  error={errors.email?.message ? t(errors.email.message as string) : ''}
                 />
                 <Input
                   label={t('text-name')}
                   {...register('name')}
                   variant="outline"
                   className="mb-5"
-                  error={t(errors.name?.message!)}
+                  error={errors.name?.message ? t(errors.name.message as string) : ''}
                 />
               </>
             )}
@@ -70,12 +70,10 @@ const OtpLoginForm: React.FC<OtpLoginFormProps> = ({
                     value={value}
                     onChange={onChange}
                     numInputs={6}
-                    separator={
-                      <span className="hidden sm:inline-block sm:mx-2">-</span>
-                    }
+                    renderSeparator={<span className="hidden sm:inline-block sm:mx-2">-</span>}
+                    renderInput={(props) => <input {...props} />}
                     containerStyle="justify-center space-x-2 sm:space-x-0"
                     inputStyle="flex items-center justify-center !w-full sm:!w-11 appearance-none transition duration-300 ease-in-out text-heading text-sm focus:outline-none focus:ring-0 border border-border-base rounded focus:border-accent h-12"
-                    disabledStyle="!bg-gray-100"
                   />
                 )}
                 name="code"

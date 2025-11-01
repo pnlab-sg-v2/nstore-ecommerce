@@ -1,8 +1,6 @@
 import { useModalAction, useModalState } from '@components/ui/modal/modal.context';
 import { useUpdateContactMutation } from '@framework/auth/auth.query';
-import { OTP} from '@framework/otp/otp';
 import {PhoneForm} from '@framework/otp/phoneform';
-import { reload } from '@framework/utils/refresh-page';
 import { customerContactAtom } from '@store/checkout';
 import { useAtom } from 'jotai';
 import { useTranslation } from 'next-i18next';

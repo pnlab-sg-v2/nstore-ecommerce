@@ -86,7 +86,7 @@ const AddressForm: React.FC<any> = ({ onSubmit }) => {
             <Input
               label={t('text-title')}
               {...register('title')}
-              error={t(errors.title?.message!)}
+              error={errors.title?.message ? t(errors.title.message as string) : ''}
               variant="outline"
               className="col-span-2"
             />
@@ -94,35 +94,35 @@ const AddressForm: React.FC<any> = ({ onSubmit }) => {
             <Input
               label={t('text-country')}
               {...register('address.country')}
-              error={t(errors.address?.country?.message!)}
+              error={errors.address?.country?.message ? t(errors.address.country.message as string) : ''}
               variant="outline"
             />
 
             <Input
               label={t('text-city')}
               {...register('address.city')}
-              error={t(errors.address?.city?.message!)}
+              error={errors.address?.city?.message ? t(errors.address.city.message as string) : ''}
               variant="outline"
             />
 
             <Input
               label={t('text-state')}
               {...register('address.state')}
-              error={t(errors.address?.state?.message!)}
+              error={errors.address?.state?.message ? t(errors.address.state.message as string) : ''}
               variant="outline"
             />
 
             <Input
               label={t('text-zip')}
               {...register('address.zip')}
-              error={t(errors.address?.zip?.message!)}
+              error={errors.address?.zip?.message ? t(errors.address.zip.message as string) : ''}
               variant="outline"
             />
 
             <TextArea
               label={t('text-street-address')}
               {...register('address.street_address')}
-              error={t(errors.address?.street_address?.message!)}
+              error={errors.address?.street_address?.message ? t(errors.address.street_address.message as string) : ''}
               variant="outline"
               className="col-span-2"
             />

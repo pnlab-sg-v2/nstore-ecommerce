@@ -1,31 +1,36 @@
 import cn from 'classnames';
 import { OverlayScrollbarsComponent } from 'overlayscrollbars-react';
-import 'overlayscrollbars/css/OverlayScrollbars.css';
+import type { PartialOptions } from 'overlayscrollbars';
+import 'overlayscrollbars/overlayscrollbars.css';
 
 type ScrollbarProps = {
-  options?: OverlayScrollbars.Options;
+  options?: PartialOptions;
   style?: React.CSSProperties;
   className?: string;
+  children?: React.ReactNode;
 };
 
 const Scrollbar: React.FC<ScrollbarProps> = ({
   options,
   className,
   style,
+  children,
   ...props
 }) => {
   return (
     <OverlayScrollbarsComponent
       options={{
-        className: cn('os-theme-thin-dark', className),
         scrollbars: {
           autoHide: 'scroll',
         },
-        ...(options ? options : {}),
+        ...options,
       }}
       style={style}
+      className={cn('os-theme-thin-dark', className)}
       {...props}
-    />
+    >
+      {children}
+    </OverlayScrollbarsComponent>
   );
 };
 

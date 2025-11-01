@@ -1,4 +1,4 @@
-import { useSession } from 'next-auth/client';
+import { useSession } from 'next-auth/react';
 import { useSocialLoginMutation } from '@framework/auth/auth.query';
 import { useEffect, useState } from 'react';
 import { authorizationAtom } from '@store/authorization-atom';
